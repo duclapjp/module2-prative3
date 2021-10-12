@@ -4,7 +4,7 @@ public class Bill {
     private User user;
     private int oldNum;
     private int newNum;
-    private boolean status=true;
+    private boolean status = false;
 
     public boolean isStatus() {
         return status;
@@ -13,6 +13,7 @@ public class Bill {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
     public User getUser() {
         return user;
     }
@@ -37,26 +38,28 @@ public class Bill {
         this.newNum = newNum;
     }
 
-    public Bill() {
+    public Bill(User user) {
     }
 
-    public Bill(User user, int oldNum, int newNum,boolean status) {
+    public Bill(User user, int oldNum, int newNum) {
         this.user = user;
         this.oldNum = oldNum;
         this.newNum = newNum;
-        this.status=status;
-    }
-    public double getBill(){                             //tính tiền điện
         this.status = false;
-        double result;
-        return result= (newNum-oldNum)*750;
     }
+
+    public double getBill() {                             //tính tiền điện
+        this.status = true;
+        double result;
+        return result = (newNum - oldNum) * 750;
+    }
+
     @Override
     public String toString() {
-        return "Bill{" +"chưa thanh toán "+
-                "user=" + user +
+        return "Bill{" +
+                user + isStatus() +
                 ", oldNum=" + oldNum +
-                ", newNum=" + newNum +"số tiền điện là:"+getBill()+
+                ", newNum=" + newNum + "số tiền điện là:" + getBill() +
                 '}';
     }
 }
