@@ -9,37 +9,37 @@ import java.util.Scanner;
 
 public class ManagerMain {
     static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
 
     }
-        static void dellBill(Manager duclap) {
+
+    static void dellBill(Manager duclap) {
         System.out.println("nhập vào số nhà");
         String numH = scanner.nextLine();
         duclap.deleteBill(numH);
     }
 
-        static void creatBill(Manager duclap) {
+    static void creatBill(Manager duclap) {
         Bill bill = creatBill();
         duclap.addNewBill(bill);
         duclap.showAllBill();
     }
 
-        static void seachHouse(Manager duclap) {
+    static void seachHouse(Manager duclap) {
         System.out.println("nhập vào số nhà muốn tìm");
-        scanner.nextLine();
         String num = scanner.nextLine();
         duclap.checkUser(num);
     }
 
-        static void countMoney(Manager duclap) {
+    static void countMoney(Manager duclap) {
         System.out.println("nhập vào số nhà");
-        scanner.nextLine();
         String numHouse = scanner.nextLine();
         duclap.countBillByCodeHouse(numHouse);
         duclap.showAllBill();
     }
 
-        public static User creatPeople() {
+    public static User creatPeople() {
         try {
             System.out.println("nhập vào tên");
             scanner.nextLine();
@@ -56,7 +56,7 @@ public class ManagerMain {
         return null;
     }
 
-        public static Bill creatBill() {
+    public static Bill creatBill() {
         try {
             System.out.println("nhập vào số cũ");
             int oldNum = scanner.nextInt();

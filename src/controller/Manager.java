@@ -38,6 +38,7 @@ public class Manager {
         for (int i = 0; i < bills.size(); i++) {
             if (bills.get(i).getUser().getNumHouse().equals(numhouse)) {
                 bills.get(i).getBill();
+                bills.get(i).setStatus(true);
                 doneBill.add(bills.remove(i));
             }
         }
@@ -65,7 +66,7 @@ public class Manager {
         }
     }
 
-    public void checkDoneBill() {
+    public void checkDoneBill() {                             //check bil đã thanh toán
         for (Bill b : doneBill) {
             System.out.println(b.toString());
         }

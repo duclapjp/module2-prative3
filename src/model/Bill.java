@@ -49,7 +49,6 @@ public class Bill {
     }
 
     public double getBill() {                             //tính tiền điện
-        this.status = true;
         double result;
         return result = (newNum - oldNum) * 750;
     }
