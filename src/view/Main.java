@@ -12,6 +12,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        ManagerMain main = new ManagerMain();
         Manager duclap = new Manager();
         boolean check = true;
         while (check) {
@@ -26,88 +27,29 @@ public class Main {
             System.out.println("---7.Tìm kiếm");
             System.out.println("---8.Tính tổng số tiền đã thu được");
             int choice = scanner.nextInt();
-
             switch (choice) {
                 case 1:
-                    creatBill(duclap);
+                    main.creatBill(duclap);
                     break;
                 case 2:
                     duclap.showAllBill();
                     break;
                 case 4:
-                    dellBill(duclap);
+                    main.dellBill(duclap);
                     break;
                 case 5:
-                    countMoney(duclap);
+                    main.countMoney(duclap);
                     break;
                 case 6:
                     duclap.checkDoneBill();
                     break;
                 case 7:
-                    seachHouse(duclap);
+                    main.seachHouse(duclap);
                     break;
                 case 8:
                     System.out.println(duclap.getAllTotalBill());
                     break;
             }
         }
-    }
-
-    private static void dellBill(Manager duclap) {
-        System.out.println("nhập vào số nhà");
-        String numH = scanner.nextLine();
-        duclap.deleteBill(numH);
-    }
-
-    private static void creatBill(Manager duclap) {
-        Bill bill = creatBill();
-        duclap.addNewBill(bill);
-        duclap.showAllBill();
-    }
-
-    private static void seachHouse(Manager duclap) {
-        System.out.println("nhập vào số nhà muốn tìm");
-        scanner.nextLine();
-        String num = scanner.nextLine();
-        duclap.checkUser(num);
-    }
-
-    private static void countMoney(Manager duclap) {
-        System.out.println("nhập vào số nhà");
-        scanner.nextLine();
-        String numHouse = scanner.nextLine();
-        duclap.countBillByCodeHouse(numHouse);
-        duclap.showAllBill();
-    }
-
-    public static User creatPeople() {
-        try {
-            System.out.println("nhập vào tên");
-            scanner.nextLine();
-            String name = scanner.nextLine();
-            System.out.println("nhập vào số nhà");
-            String numHouse = scanner.nextLine();
-            System.out.println("nhập vào mã code");
-            String code = scanner.nextLine();
-            User user = new User(name, numHouse, code);
-            return user;
-        } catch (InputMismatchException e) {
-            System.out.println("nhập sai rồi");
-        }
-        return null;
-    }
-
-    public static Bill creatBill() {
-        try {
-            System.out.println("nhập vào số cũ");
-            int oldNum = scanner.nextInt();
-            System.out.println("nhập vào số mới");
-            int newNum = scanner.nextInt();
-            Bill newBill = new Bill(creatPeople(), oldNum, newNum);
-            return newBill;
-        } catch (InputMismatchException e) {
-            System.out.println("nhập sai rồi");
-        }
-        return null;
     }
 }
